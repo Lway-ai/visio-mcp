@@ -14,7 +14,8 @@ def test_defaults():
 
 
 def test_from_env(monkeypatch):
-    monkeypatch.setenv("VISIO_MCP_STENCIL_DIRS", r"D:\stencils;C:\stencils")
+    sep = os.pathsep  # ';' on Windows, ':' on POSIX — matches config behavior
+    monkeypatch.setenv("VISIO_MCP_STENCIL_DIRS", f"D:\\stencils{sep}C:\\stencils")
     monkeypatch.setenv("VISIO_MCP_WIRE_WEIGHT", "2.16 pt")
     monkeypatch.setenv("VISIO_MCP_VISIBLE", "1")
     c = Config.from_env()
