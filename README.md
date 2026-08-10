@@ -4,7 +4,7 @@ MCP (Model Context Protocol) server for drawing **circuit schematics** and
 diagrams in Microsoft Visio, driven by an LLM agent. MIT-licensed, 100%
 original code — no parts copied from other Visio MCP projects.
 
-![CI](https://img.shields.io/badge/CI-unit%20tests%20headless-green)
+![CI](https://github.com/Lway-ai/visio-mcp/actions/workflows/ci.yml/badge.svg)
 
 ## Why
 
