@@ -14,12 +14,14 @@ def test_defaults():
 
 
 def test_from_env(monkeypatch):
+    # Windows drive letters (D:) contain a colon, so they cannot round-trip
+    # through os.pathsep on POSIX (':') — use platform-neutral paths here.
     sep = os.pathsep  # ';' on Windows, ':' on POSIX — matches config behavior
-    monkeypatch.setenv("VISIO_MCP_STENCIL_DIRS", f"D:\\stencils{sep}C:\\stencils")
+    monkeypatch.setenv("VISIO_MCP_STENCIL_DIRS", f"/stencils/a{sep}/stencils/b")
     monkeypatch.setenv("VISIO_MCP_WIRE_WEIGHT", "2.16 pt")
     monkeypatch.setenv("VISIO_MCP_VISIBLE", "1")
     c = Config.from_env()
-    assert c.stencil_dirs == [r"D:\stencils", r"C:\stencils"]
+    assert c.stencil_dirs == ["/stencils/a", "/stencils/b"]
     assert c.wire_weight == "2.16 pt"
     assert c.visio_visible is True
 
