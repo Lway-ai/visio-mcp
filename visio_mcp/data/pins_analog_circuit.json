@@ -1,0 +1,135 @@
+{
+  "_meta": {
+    "description": "Measured pin geometry for Analog Circuit.vss stencil masters (Microsoft Visio 'Analog Circuit' stencil). Offsets are in inches relative to the drop point (PinX, PinY) in page coordinates (y-up). Measured by rendering each master to PNG at 240 DPI and analyzing ink with PIL. 'angle': optional rotation applied at drop; None = use master's baked orientation. 'flip_x': horizontal mirror. body = ink bounding box of the symbol body (for clearance checks).",
+    "units": "inches",
+    "measured": "2026-08"
+  },
+  "masters": {
+    "NMOS1": {
+      "variants": [
+        {
+          "name": "normal",
+          "angle": null,
+          "flip_x": false,
+          "pins": {
+            "gate":  [-0.251, 0.0],
+            "drain": [0.251, 0.305],
+            "source": [0.251, -0.303]
+          },
+          "body": {"x_min": 0.033, "x_max": 0.267, "y_min": -0.18, "y_max": 0.17}
+        },
+        {
+          "name": "flipped",
+          "angle": null,
+          "flip_x": true,
+          "pins": {
+            "gate":  [0.257, 0.0],
+            "drain": [-0.240, 0.316],
+            "source": [-0.240, -0.292]
+          },
+          "body": {"x_min": -0.267, "x_max": -0.033, "y_min": -0.18, "y_max": 0.17}
+        }
+      ]
+    },
+    "Ind2": {
+      "variants": [
+        {
+          "name": "horizontal",
+          "angle": null,
+          "flip_x": false,
+          "pins": {
+            "left":  [-0.303, 0.025],
+            "right": [0.305, 0.023]
+          },
+          "body": {"x_min": -0.31, "x_max": 0.31, "y_min": -0.115, "y_max": 0.115}
+        },
+        {
+          "name": "vertical",
+          "angle": 0,
+          "flip_x": false,
+          "pins": {
+            "top":    [0.018, 0.305],
+            "bottom": [0.018, -0.303]
+          },
+          "body": {"x_min": -0.115, "x_max": 0.115, "y_min": -0.31, "y_max": 0.31}
+        }
+      ]
+    },
+    "Res1": {
+      "variants": [
+        {
+          "name": "horizontal",
+          "angle": null,
+          "flip_x": false,
+          "pins": {
+            "left":  [-0.264, -0.017],
+            "right": [0.244, 0.016]
+          },
+          "body": {"x_min": -0.26, "x_max": 0.26, "y_min": -0.115, "y_max": 0.115}
+        }
+      ]
+    },
+    "Cap1": {
+      "variants": [
+        {
+          "name": "ports_top_bottom",
+          "angle": null,
+          "flip_x": false,
+          "pins": {
+            "top":    [-0.014, 0.205],
+            "bottom": [-0.012, -0.204]
+          },
+          "body": {"x_min": -0.175, "x_max": 0.175, "y_min": -0.205, "y_max": 0.205}
+        },
+        {
+          "name": "ports_left_right",
+          "angle": 90,
+          "flip_x": false,
+          "pins": {
+            "left":  [-0.214, 0.0],
+            "right": [0.194, 0.0]
+          },
+          "body": {"x_min": -0.21, "x_max": 0.21, "y_min": -0.165, "y_max": 0.165}
+        }
+      ]
+    },
+    "balun": {
+      "variants": [
+        {
+          "name": "normal",
+          "angle": null,
+          "flip_x": false,
+          "pins": {
+            "left_coil_top":    [-0.24, 0.31],
+            "left_coil_bottom": [-0.24, -0.31],
+            "right_coil_top":   [0.25, 0.31],
+            "right_coil_bottom":[0.25, -0.31]
+          },
+          "body": {"x_min": -0.46, "x_max": 0.45, "y_min": -0.31, "y_max": 0.31}
+        }
+      ]
+    },
+    "gnd": {
+      "variants": [
+        {
+          "name": "normal",
+          "angle": null,
+          "flip_x": false,
+          "pins": {"top": [0.0, 0.164]},
+          "body": {"x_min": -0.115, "x_max": 0.115, "y_min": -0.152, "y_max": 0.164}
+        }
+      ]
+    },
+    "vdd": {
+      "variants": [
+        {
+          "name": "normal",
+          "angle": null,
+          "flip_x": false,
+          "pins": {"bottom": [0.0, -0.102]},
+          "body": {"x_min": -0.21, "x_max": 0.21, "y_min": -0.115, "y_max": 0.115}
+        }
+      ]
+    }
+  }
+}

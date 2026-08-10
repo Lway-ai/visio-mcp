@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual envs
+.venv/
+venv/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Logs / runtime artifacts
+logs/
+*.log
+*.png
+*.vsdx
+
+# Local Visio stencils (user-specific paths, never commit)
+stencils_local/
+
+# Visio lock/temp files
+~$*

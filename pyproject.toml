@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "visio-mcp"
+version = "0.1.0"
+description = "MCP server for drawing circuit schematics and diagrams in Microsoft Visio"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "leiwang" }]
+keywords = ["mcp", "visio", "schematic", "circuit", "automation", "win32com"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Win32 (MS Windows)",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)",
+]
+dependencies = [
+    "fastmcp>=2.0",
+    "pywin32>=306; platform_system == 'Windows'",
+    "Pillow>=10.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0,<9", "pytest-asyncio>=0.23"]
+
+[project.scripts]
+visio-mcp = "visio_mcp.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["visio_mcp"]
+
+[tool.hatch.build.targets.sdist]
+include = ["visio_mcp", "examples", "tests", "README.md", "README.zh-CN.md", "LICENSE"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
