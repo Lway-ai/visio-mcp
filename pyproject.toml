@@ -36,7 +36,7 @@ visio-mcp = "visio_mcp.__main__:main"
 packages = ["visio_mcp"]
 
 [tool.hatch.build.targets.sdist]
-include = ["visio_mcp", "examples", "tests", "README.md", "README.zh-CN.md", "LICENSE"]
+include = ["visio_mcp", "examples", "tests", "stencils", "README.md", "README.zh-CN.md", "LICENSE"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"

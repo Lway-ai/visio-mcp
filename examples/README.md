@@ -11,7 +11,8 @@ python examples/lna_two_stage.py [output_dir] [stencil_dir]
 
 - `output_dir` — where `TwoStage_Diff_LNA.vsdx` + `.png` are written (default: `examples/`)
 - `stencil_dir` — directory containing `Analog Circuit.vss` and `RFIC_lib.vss`
-  (default: env `VISIO_MCP_STENCIL_DIRS`, then the repo root)
+  (default: the bundled `stencils/` dir in the repo root; override with env
+  `VISIO_MCP_STENCIL_DIRS` or the 2nd argument)
 
 What it demonstrates:
 

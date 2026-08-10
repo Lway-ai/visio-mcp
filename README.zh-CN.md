@@ -12,6 +12,7 @@
 - **stencil 锁绕行** —— stencil 被另一个 Visio 会话占用时(常见),自动打开临时副本
 - **工具集**:文档、页面、stencil、master、形状(放置/连线/文字/节点/线宽/删除/查找/枚举)、导出(PNG/PDF/SVG/EMF 等)
 - **实测引脚几何**:`Analog Circuit.vss` 的 NMOS1/PMOS1/Res1/Cap1/Ind2/balun/gnd/vdd,含旋转/翻转变体
+- **内置模板** —— `stencils/` 随仓库附带 `Analog Circuit.vss`、`RFIC_lib.vss`、`RFsys_lib.vss`,开箱即可运行示例(第三方学术符号,来源见 `stencils/README.md`)
 - **无头 Mock 引擎** —— 同一套工具层在无 Visio 环境下运行,测试套件可在 Linux CI 上跑
 - **示例**:完整的两级差分 40 GHz LNA 原理图生成器
 
@@ -22,7 +23,7 @@
 | Windows 10/11 | 实时模式 |
 | Microsoft Visio 2016+ | 任意版本 |
 | Python 3.11+ | |
-| `Analog Circuit.vss`、`RFIC_lib.vss` | stencil 文件;用 `VISIO_MCP_STENCIL_DIRS` 指向所在目录 |
+| `stencils/` | 随仓库附带(`Analog Circuit.vss`、`RFIC_lib.vss`、`RFsys_lib.vss`);用 `VISIO_MCP_STENCIL_DIRS` 指向该目录 |
 
 ## 安装
 
@@ -30,6 +31,9 @@
 cd VISIO_MCP
 python -m venv .venv
 .venv\Scripts\pip install -e ".[dev]"
+
+# 模板随仓库附带,把服务器指向它
+export VISIO_MCP_STENCIL_DIRS="$PWD/stencils"
 ```
 
 探测 Visio:
@@ -113,10 +117,14 @@ visio_mcp/
   server.py        FastMCP 应用 + 工具
   pins.py          实测几何辅助函数
   data/pins_analog_circuit.json
+stencils/           随仓库附带的 Visio 模板(Analog Circuit / RFIC_lib / RFsys_lib)
 examples/lna_two_stage.py   两级差分 LNA 原理图生成器
 tests/                      单测(无头)
 ```
 
 ## 许可证
 
-MIT。注意:stencil 文件(`Analog Circuit.vss`、`RFIC_lib.vss`)是 Microsoft Visio 内容,**不属于**本仓库。
+MIT —— 本项目的代码、实测引脚几何 JSON 和文档为作者原创。`stencils/` 中
+附带的模板(`Analog Circuit.vss`、`RFIC_lib.vss`、`RFsys_lib.vss`)是
+**第三方学术符号库**(最初创建于复旦大学),**不受**本项目 MIT 许可覆盖 ——
+其来源与条款见 `stencils/README.md`。

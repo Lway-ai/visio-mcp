@@ -26,6 +26,9 @@ page coordinates, so wires land *on* the pins.
   label / junction / weight / delete / find / list), export (PNG/PDF/SVG/EMF…)
 - **Measured pin geometry** for `Analog Circuit.vss` masters
   (NMOS1/PMOS1/Res1/Cap1/Ind2/balun/gnd/vdd) with orientation variants
+- **Bundled stencils** — `stencils/` ships `Analog Circuit.vss`,
+  `RFIC_lib.vss` and `RFsys_lib.vss` so the examples run out of the box
+  (third-party academic symbols, see `stencils/README.md` for provenance)
 - **Headless mock engine** — the same tool layer runs without Visio, so the
   test suite works on Linux CI
 - **Example**: complete two-stage differential 40 GHz LNA schematic generator
@@ -37,7 +40,7 @@ page coordinates, so wires land *on* the pins.
 | Windows 10/11 | live mode |
 | Microsoft Visio 2016+ | any edition |
 | Python 3.11+ | |
-| `Analog Circuit.vss`, `RFIC_lib.vss` | stencils; point `VISIO_MCP_STENCIL_DIRS` at them |
+| `stencils/` | bundled with the repo (`Analog Circuit.vss`, `RFIC_lib.vss`, `RFsys_lib.vss`); point `VISIO_MCP_STENCIL_DIRS` at it |
 
 ## Install
 
@@ -45,6 +48,9 @@ page coordinates, so wires land *on* the pins.
 cd VISIO_MCP
 python -m venv .venv
 .venv\Scripts\pip install -e ".[dev]"
+
+# stencils ship with the repo; point the server at them
+export VISIO_MCP_STENCIL_DIRS="$PWD/stencils"
 ```
 
 Probe Visio:
@@ -156,11 +162,16 @@ visio_mcp/
   server.py        FastMCP app + tools
   pins.py          measured-geometry helpers
   data/pins_analog_circuit.json
+stencils/           bundled Visio stencils (Analog Circuit / RFIC_lib / RFsys_lib)
 examples/lna_two_stage.py   two-stage diff LNA schematic generator
 tests/                      unit tests (headless)
 ```
 
 ## License
 
-MIT. Note: the stencils (`Analog Circuit.vss`, `RFIC_lib.vss`) are Microsoft
-Visio content and are **not** part of this repository.
+MIT — the code, the measured pin-geometry JSON, and this documentation are
+original work of this project's author. The bundled stencils in `stencils/`
+(`Analog Circuit.vss`, `RFIC_lib.vss`, `RFsys_lib.vss`) are **third-party
+academic symbols** (originally created at Fudan University) and are **not**
+covered by this project's MIT license — see `stencils/README.md` for their
+provenance and terms.

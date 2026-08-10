@@ -35,3 +35,4 @@ stencils_local/
 
 # Visio lock/temp files
 ~$*
+_visio_mcp_tmp_*

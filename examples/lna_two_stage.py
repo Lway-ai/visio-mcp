@@ -5,8 +5,8 @@ the MCP server exposes (engine + measured pin geometry). Run:
 
     python examples/lna_two_stage.py [output_dir] [stencil_dir]
 
-Requires: Windows + Visio + Analog Circuit.vss / RFIC_lib.vss stencils.
-Set VISIO_MCP_STENCIL_DIRS or pass the stencil directory as the 2nd arg.
+Requires: Windows + Visio + the bundled stencils (stencils/ in the repo
+root, or set VISIO_MCP_STENCIL_DIRS / pass the directory as 2nd arg).
 
 Layout conventions (learned the hard way):
   * wires FIRST, components ON TOP -> series elements cover the wire
@@ -186,6 +186,7 @@ if __name__ == "__main__":
 
     out_dir = sys.argv[1] if len(sys.argv) > 1 else str(Path(__file__).resolve().parent)
     stencil_dir = sys.argv[2] if len(sys.argv) > 2 else os.environ.get(
-        "VISIO_MCP_STENCIL_DIRS", str(Path(__file__).resolve().parent.parent)
+        "VISIO_MCP_STENCIL_DIRS",
+        str(Path(__file__).resolve().parent.parent / "stencils"),
     )
     asyncio.run(main(out_dir, stencil_dir))

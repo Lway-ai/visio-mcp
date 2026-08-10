@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "description": "Measured pin geometry for Analog Circuit.vss stencil masters (Microsoft Visio 'Analog Circuit' stencil). Offsets are in inches relative to the drop point (PinX, PinY) in page coordinates (y-up). Measured by rendering each master to PNG at 240 DPI and analyzing ink with PIL. 'angle': optional rotation applied at drop; None = use master's baked orientation. 'flip_x': horizontal mirror. body = ink bounding box of the symbol body (for clearance checks).",
+    "description": "Measured pin geometry for Analog Circuit.vss stencil masters. Offsets are in inches relative to the drop point (PinX, PinY) in page coordinates (y-up). Measured by rendering each master to PNG at 240 DPI and analyzing ink with PIL. 'angle': optional rotation applied at drop; None = use master's baked orientation. 'flip_x': horizontal mirror. body = ink bounding box of the symbol body (for clearance checks).",
     "units": "inches",
     "measured": "2026-08"
   },
